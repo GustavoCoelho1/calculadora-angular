@@ -1,0 +1,105 @@
+<main>
+    <h3>Calculadora IBM</h3>
+
+    <div class="container">
+        <div class="calculatorContainer">
+            <div class="inputContainer">
+                <div class="currentOperationReturn">
+                    <span class="firstNumber" *ngIf="firstNumber != 0">{{
+                        firstNumber
+                    }}</span>
+                    <span class="firstNumber" *ngIf="currentOperation != ''">{{
+                        currentOperation
+                    }}</span>
+
+                    <span class="firstNumber" *ngIf="secondNumber != 0">{{
+                        secondNumber
+                    }}</span>
+                </div>
+                <input [(ngModel)]="visibleNumber" type="text" readonly />
+            </div>
+            <div class="buttonsContainer">
+                <div class="buttonsRow">
+                    <div *ngFor="let number of [7, 8, 9]; index as idx">
+                        <button
+                            (click)="numberClick(number)"
+                            class="numberButton button"
+                        >
+                            {{ number }}
+                        </button>
+                    </div>
+                    <button
+                        (click)="operatorClick('/')"
+                        class="operatorButton button"
+                    >
+                        ÷
+                    </button>
+                </div>
+                <div class="buttonsRow">
+                    <div *ngFor="let number of [4, 5, 6]; index as idx">
+                        <button
+                            (click)="numberClick(number)"
+                            class="numberButton button"
+                        >
+                            {{ number }}
+                        </button>
+                    </div>
+                    <button
+                        (click)="operatorClick('*')"
+                        class="operatorButton button"
+                    >
+                        X
+                    </button>
+                </div>
+                <div class="buttonsRow">
+                    <div *ngFor="let number of [1, 2, 3]; index as idx">
+                        <button
+                            (click)="numberClick(number)"
+                            class="numberButton button"
+                        >
+                            {{ number }}
+                        </button>
+                    </div>
+                    <button
+                        (click)="operatorClick('-')"
+                        class="operatorButton button"
+                    >
+                        -
+                    </button>
+                </div>
+                <div class="buttonsRow">
+                    <button (click)="clearClick()" class="clearButton button">
+                        AC
+                    </button>
+                    <button
+                        (click)="numberClick(0)"
+                        class="numberButton button"
+                    >
+                        0
+                    </button>
+                    <div class="void"></div>
+                    <button
+                        (click)="operatorClick('+')"
+                        class="operatorButton button"
+                    >
+                        +
+                    </button>
+                </div>
+                <div class="buttonsRow">
+                    <button
+                        (click)="backspaceClick()"
+                        class="backspaceButton biggerButton"
+                    >
+                        ←
+                    </button>
+                    <button
+                        (click)="resultClick()"
+                        class="resultButton biggerButton"
+                    >
+                        =
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
